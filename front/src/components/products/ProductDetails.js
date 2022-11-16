@@ -57,7 +57,7 @@ export const ProductDetails = () => {
               <Carousel pause='hover'>
                 {product.imagen && product.imagen.map(img =>(
                   <Carousel.Item key={img.public_id}>
-                    <img className="d-block w-100" src={"../"+img.url} alt={product.nombre}></img>
+                    <img className="d-block w-100" src={img.url} alt={product.nombre}></img>
                   </Carousel.Item>
                 ))}
               </Carousel>
@@ -81,7 +81,7 @@ export const ProductDetails = () => {
               </div>
               <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" disabled={product.inventario === 0} onClick={addToCart}>Agregar al Carrito</button>
               <hr />
-              <p>Estado: <span id="stock_stado" className={product.inventario>0 ? 'greenColor':'redColor'}>{product.inventario>0 ? "En existencia": "Agotado"}</span></p>
+              <p>Unidades Disponibles: <span id="stock_stado" className={product.inventario>0 ? 'greenColor':'redColor'}>{product.inventario }</span></p>
               <hr />
               <h4 className="mt-2">Descripción:</h4>
               <p>{product.descripcion}</p>
